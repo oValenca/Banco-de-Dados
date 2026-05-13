@@ -3,8 +3,7 @@
 -- Host: localhost    Database: sisgesc
 -- ------------------------------------------------------
 -- Server version	8.0.45
-CREATE DATABASE IF NOT EXISTS SisGESC;
-USE SisGESC;
+
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
 /*!40101 SET @OLD_COLLATION_CONNECTION=@@COLLATION_CONNECTION */;
@@ -78,7 +77,7 @@ CREATE TABLE `dim_fornecedor_bi` (
   `razao_social` varchar(150) DEFAULT NULL,
   `categoria` varchar(50) DEFAULT NULL,
   PRIMARY KEY (`sk_fornecedor`)
-) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -87,7 +86,7 @@ CREATE TABLE `dim_fornecedor_bi` (
 
 LOCK TABLES `dim_fornecedor_bi` WRITE;
 /*!40000 ALTER TABLE `dim_fornecedor_bi` DISABLE KEYS */;
-INSERT INTO `dim_fornecedor_bi` VALUES (1,'11222333000192','Educa Mais Materiais2 LTDA','Produto'),(2,'11222333000199','Educa Mais Materiais LTDA','Produto'),(3,'44555666000182','Limpeza Brilho Extremo2','Serviço'),(4,'44555666000188','Limpeza Brilho Extremo','Serviço'),(5,'77888999000177','Softwares Educacionais S.A','Serviço');
+INSERT INTO `dim_fornecedor_bi` VALUES (1,'11222333000199','Educa Mais Materiais LTDA','Produto');
 /*!40000 ALTER TABLE `dim_fornecedor_bi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -104,7 +103,7 @@ CREATE TABLE `dim_funcionario_bi` (
   `nome_completo` varchar(150) DEFAULT NULL,
   `cargo` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`sk_funcionario`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -113,7 +112,7 @@ CREATE TABLE `dim_funcionario_bi` (
 
 LOCK TABLES `dim_funcionario_bi` WRITE;
 /*!40000 ALTER TABLE `dim_funcionario_bi` DISABLE KEYS */;
-INSERT INTO `dim_funcionario_bi` VALUES (1,'22233344455','Marlus Bueno','Coordenador');
+INSERT INTO `dim_funcionario_bi` VALUES (1,'22233344455','Marlus Bueno','Coordenador'),(2,'30040050033',' ','Coordenador'),(3,'50060070055','Eduarda Costa','Analista de RH Sênior'),(4,'60070080066','Fabio Santos','Analista de Sistemas'),(5,'80090000088','Hugo Teixeira','Coordenador Pedagógico'),(6,'90010020099','Beatriz Lopes','Coordenador');
 /*!40000 ALTER TABLE `dim_funcionario_bi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -130,7 +129,7 @@ CREATE TABLE `dim_unidade_bi` (
   `nome_unidade` varchar(100) DEFAULT NULL,
   `cidade` varchar(100) DEFAULT NULL,
   PRIMARY KEY (`sk_unidade`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -139,7 +138,6 @@ CREATE TABLE `dim_unidade_bi` (
 
 LOCK TABLES `dim_unidade_bi` WRITE;
 /*!40000 ALTER TABLE `dim_unidade_bi` DISABLE KEYS */;
-INSERT INTO `dim_unidade_bi` VALUES (1,1,'Sede','SP');
 /*!40000 ALTER TABLE `dim_unidade_bi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -167,7 +165,7 @@ CREATE TABLE `fato_financeiro_bi` (
 
 LOCK TABLES `fato_financeiro_bi` WRITE;
 /*!40000 ALTER TABLE `fato_financeiro_bi` DISABLE KEYS */;
-INSERT INTO `fato_financeiro_bi` VALUES (1,2,0.00,450.00);
+INSERT INTO `fato_financeiro_bi` VALUES (1,1,4000.00,450.00);
 /*!40000 ALTER TABLE `fato_financeiro_bi` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -282,7 +280,7 @@ CREATE TABLE `tb_alunos` (
 
 LOCK TABLES `tb_alunos` WRITE;
 /*!40000 ALTER TABLE `tb_alunos` DISABLE KEYS */;
-INSERT INTO `tb_alunos` VALUES (2026001,'11122233344',1,'2026-05-09 00:58:32');
+INSERT INTO `tb_alunos` VALUES (2026001,'11122233344',1,'2026-05-09 00:58:32'),(2026002,'20030040022',1,'2026-05-12 22:27:15'),(2026003,'40050060044',1,'2026-05-12 22:27:15'),(2026004,'70080090077',2,'2026-05-12 22:27:15');
 /*!40000 ALTER TABLE `tb_alunos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -309,7 +307,7 @@ CREATE TABLE `tb_avaliacoes_desempenho` (
 
 LOCK TABLES `tb_avaliacoes_desempenho` WRITE;
 /*!40000 ALTER TABLE `tb_avaliacoes_desempenho` DISABLE KEYS */;
-INSERT INTO `tb_avaliacoes_desempenho` VALUES ('22233344455','2026-05-08',10,'Promoção por mérito acadêmico');
+INSERT INTO `tb_avaliacoes_desempenho` VALUES ('22233344455','2026-05-08',10,'Promoção por mérito acadêmico'),('22233344455','2026-05-12',10,'Promoção por mérito acadêmico');
 /*!40000 ALTER TABLE `tb_avaliacoes_desempenho` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -363,6 +361,7 @@ CREATE TABLE `tb_bancos` (
 
 LOCK TABLES `tb_bancos` WRITE;
 /*!40000 ALTER TABLE `tb_bancos` DISABLE KEYS */;
+INSERT INTO `tb_bancos` VALUES ('001','Banco do Brasil',NULL,NULL),('002','Banco do Brasil',NULL,NULL);
 /*!40000 ALTER TABLE `tb_bancos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -408,11 +407,12 @@ CREATE TABLE `tb_cargo` (
   `dt_criacao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
   `dt_alteracao` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP ON UPDATE CURRENT_TIMESTAMP,
   PRIMARY KEY (`pk_id_cargo`),
+  UNIQUE KEY `uk_cargo_departamento` (`nome_cargo`,`fk_id_departamento`),
   KEY `fk_id_departamento` (`fk_id_departamento`),
   CONSTRAINT `tb_cargo_ibfk_1` FOREIGN KEY (`fk_id_departamento`) REFERENCES `tb_departamento` (`pk_id_departamento`),
   CONSTRAINT `tb_cargo_chk_1` CHECK (((`carga_horaria` > 0) and (`carga_horaria` <= 220))),
   CONSTRAINT `tb_cargo_chk_2` CHECK ((`salario_base` > 0))
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=13 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -421,7 +421,7 @@ CREATE TABLE `tb_cargo` (
 
 LOCK TABLES `tb_cargo` WRITE;
 /*!40000 ALTER TABLE `tb_cargo` DISABLE KEYS */;
-INSERT INTO `tb_cargo` VALUES (1,1,'Coordenador',40.00,5000.00,NULL,'2026-05-09 02:09:04','2026-05-09 02:09:04');
+INSERT INTO `tb_cargo` VALUES (1,1,'Analista de RH Sênior',200.00,5500.00,'Responsável pela folha e benefícios','2026-05-12 23:27:13','2026-05-12 23:27:13'),(2,2,'Analista de Sistemas',220.00,7500.00,'Suporte e desenvolvimento de sistemas internos','2026-05-12 23:27:13','2026-05-12 23:27:13'),(3,3,'Coordenador Pedagógico',180.00,6800.00,'Gestão de professores e matriz curricular','2026-05-12 23:27:13','2026-05-12 23:27:13'),(4,1,'Assistente Administrativo',220.00,2500.00,'Apoio operacional aos departamentos','2026-05-12 23:27:13','2026-05-12 23:27:13');
 /*!40000 ALTER TABLE `tb_cargo` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -470,7 +470,7 @@ CREATE TABLE `tb_cidade` (
   UNIQUE KEY `tb_cidade_index_2` (`nome_cidade`,`fk_uf`),
   KEY `fk_uf` (`fk_uf`),
   CONSTRAINT `tb_cidade_ibfk_1` FOREIGN KEY (`fk_uf`) REFERENCES `tb_estado` (`pk_uf`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=31 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -479,7 +479,7 @@ CREATE TABLE `tb_cidade` (
 
 LOCK TABLES `tb_cidade` WRITE;
 /*!40000 ALTER TABLE `tb_cidade` DISABLE KEYS */;
-INSERT INTO `tb_cidade` VALUES (2,'São Bernardo','SP'),(1,'São Paulo','SP');
+INSERT INTO `tb_cidade` VALUES (5,'Belo Horizonte','MG'),(3,'Campinas','SP'),(4,'Santos','SP'),(2,'São Bernardo','SP'),(1,'São Paulo','SP');
 /*!40000 ALTER TABLE `tb_cidade` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -583,6 +583,7 @@ CREATE TABLE `tb_conta_bancaria` (
 
 LOCK TABLES `tb_conta_bancaria` WRITE;
 /*!40000 ALTER TABLE `tb_conta_bancaria` DISABLE KEYS */;
+INSERT INTO `tb_conta_bancaria` VALUES ('001','0001','12345-6','Conta Operacional SisGESC','Corrente',10000.00),('001','0001','12345-7','Conta Operacional SisGESC','Corrente',10000.00);
 /*!40000 ALTER TABLE `tb_conta_bancaria` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -609,13 +610,14 @@ CREATE TABLE `tb_contas_pagar` (
   KEY `fk_cp_centro_custo` (`fk_cod_hierarquico`),
   KEY `fk_cp_plano_pagamento` (`fk_id_plano_pagamento`),
   KEY `fk_cp_status` (`fk_id_status_contas_pagar`),
+  KEY `idx_financeiro_status` (`fk_id_status_contas_pagar`),
   CONSTRAINT `fk_cp_centro_custo` FOREIGN KEY (`fk_cod_hierarquico`) REFERENCES `tb_centro_custos` (`cod_hierarquico`),
   CONSTRAINT `fk_cp_fornecedor` FOREIGN KEY (`fk_cnpj_fornecedor`) REFERENCES `tb_fornecedor` (`pk_cnpj_fornecedor`),
   CONSTRAINT `fk_cp_plano_pagamento` FOREIGN KEY (`fk_id_plano_pagamento`) REFERENCES `tb_plano_pagamento` (`pk_id_plano_pagamento`),
   CONSTRAINT `fk_cp_status` FOREIGN KEY (`fk_id_status_contas_pagar`) REFERENCES `tb_status_contas_pagar` (`pk_id_status_contas_pagar`),
   CONSTRAINT `chk_valor_nominal` CHECK ((`valor_nominal` > 0)),
   CONSTRAINT `chk_vencimento_valido` CHECK ((`dt_vencimento` >= `dt_emissao`))
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -624,7 +626,7 @@ CREATE TABLE `tb_contas_pagar` (
 
 LOCK TABLES `tb_contas_pagar` WRITE;
 /*!40000 ALTER TABLE `tb_contas_pagar` DISABLE KEYS */;
-INSERT INTO `tb_contas_pagar` VALUES (1,'11222333000199','1.01.001',1,3,'Resma de Papel A4','2026-05-08','2026-05-13',450.00,NULL);
+INSERT INTO `tb_contas_pagar` VALUES (1,'11222333000199','1.01.001',1,3,'Resma de Papel A4','2026-05-08','2026-05-13',450.00,NULL),(2,'11222333000199','1.01.001',1,1,'Manutenção de Computadores','2026-05-08','2026-05-20',4000.00,NULL);
 /*!40000 ALTER TABLE `tb_contas_pagar` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -761,7 +763,7 @@ CREATE TABLE `tb_contratos` (
 
 LOCK TABLES `tb_contratos` WRITE;
 /*!40000 ALTER TABLE `tb_contratos` DISABLE KEYS */;
-INSERT INTO `tb_contratos` VALUES ('22233344455','2026-01-01',1,'CLT',NULL,5500.00,'2026-01-01',NULL,'2026-05-09 02:09:04','2026-05-09 02:16:01');
+INSERT INTO `tb_contratos` VALUES ('22233344455','2026-01-01',1,'CLT',NULL,5500.00,'2026-01-01',NULL,'2026-05-09 02:09:04','2026-05-09 02:16:01'),('30040050033','2024-01-10',1,'CLT',NULL,2600.00,'0000-00-00',NULL,'2026-05-12 22:27:15','2026-05-12 22:27:15'),('50060070055','2023-05-15',2,'CLT',NULL,4800.00,'0000-00-00',NULL,'2026-05-12 22:27:15','2026-05-12 22:27:15'),('60070080066','2022-10-01',3,'CLT',NULL,7900.00,'0000-00-00',NULL,'2026-05-12 22:27:15','2026-05-12 22:27:15'),('80090000088','2025-02-01',4,'CLT',NULL,6800.00,'0000-00-00',NULL,'2026-05-12 22:27:15','2026-05-12 22:27:15'),('90010020099','2026-01-01',1,'Estágio',NULL,1500.00,'2026-01-01',NULL,'2026-05-12 23:00:51','2026-05-12 23:00:51');
 /*!40000 ALTER TABLE `tb_contratos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -864,6 +866,7 @@ CREATE TABLE `tb_cursos` (
 
 LOCK TABLES `tb_cursos` WRITE;
 /*!40000 ALTER TABLE `tb_cursos` DISABLE KEYS */;
+INSERT INTO `tb_cursos` VALUES ('ADS','Análise e Desenvolvimento de Sistemas','Presencial',5),('CC','Ciência da Computação','Presencial',8);
 /*!40000 ALTER TABLE `tb_cursos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -888,7 +891,7 @@ CREATE TABLE `tb_departamento` (
   KEY `fk_dep_unidade` (`fk_id_unidade`),
   CONSTRAINT `fk_dep_setor` FOREIGN KEY (`fk_id_setor`) REFERENCES `tb_setor` (`pk_id_setor`),
   CONSTRAINT `fk_dep_unidade` FOREIGN KEY (`fk_id_unidade`) REFERENCES `tb_unidade` (`pk_id_unidade`)
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=30 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -897,7 +900,7 @@ CREATE TABLE `tb_departamento` (
 
 LOCK TABLES `tb_departamento` WRITE;
 /*!40000 ALTER TABLE `tb_departamento` DISABLE KEYS */;
-INSERT INTO `tb_departamento` VALUES (1,1,1,'Departamento de RH','DRH',NULL,'Presencial');
+INSERT INTO `tb_departamento` VALUES (1,1,1,'Departamento de RH','DRH',NULL,'Presencial'),(2,1,1,'Secretaria Acadêmica','SEC',NULL,'Presencial'),(3,2,1,'Controladoria','CONT',NULL,'Híbrido'),(4,3,3,'Suporte Técnico','SUP',NULL,'Remoto'),(5,1,2,'Coordenação de Cursos','COORD',NULL,'Presencial');
 /*!40000 ALTER TABLE `tb_departamento` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1065,7 +1068,7 @@ CREATE TABLE `tb_estado` (
 
 LOCK TABLES `tb_estado` WRITE;
 /*!40000 ALTER TABLE `tb_estado` DISABLE KEYS */;
-INSERT INTO `tb_estado` VALUES ('RJ','Rio de Janeiro'),('SP','São Paulo');
+INSERT INTO `tb_estado` VALUES ('MG','Minas Gerais'),('RJ','Rio de Janeiro'),('SP','São Paulo');
 /*!40000 ALTER TABLE `tb_estado` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1158,7 +1161,7 @@ CREATE TABLE `tb_fornecedor` (
 
 LOCK TABLES `tb_fornecedor` WRITE;
 /*!40000 ALTER TABLE `tb_fornecedor` DISABLE KEYS */;
-INSERT INTO `tb_fornecedor` VALUES ('11222333000192','Educa Mais Materiais2 LTDA','Produto','vendas2@educamais.com.br'),('11222333000199','Educa Mais Materiais LTDA','Produto','vendas@educamais.com.br'),('44555666000182','Limpeza Brilho Extremo2','Serviço','contato2@brilhoextremo.com'),('44555666000188','Limpeza Brilho Extremo','Serviço','contato@brilhoextremo.com'),('77888999000177','Softwares Educacionais S.A','Serviço','suporte@softed.com');
+INSERT INTO `tb_fornecedor` VALUES ('11222333000199','Educa Mais Materiais LTDA','Produto','vendas@educamais.com.br');
 /*!40000 ALTER TABLE `tb_fornecedor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1222,7 +1225,7 @@ CREATE TABLE `tb_funcionarios` (
 
 LOCK TABLES `tb_funcionarios` WRITE;
 /*!40000 ALTER TABLE `tb_funcionarios` DISABLE KEYS */;
-INSERT INTO `tb_funcionarios` VALUES ('22233344455','RH001','Marlus','Bueno','Masculino','Pardo','12345','1990-01-01',NULL,'Ativo','Mestrado','2026-05-09 02:09:04');
+INSERT INTO `tb_funcionarios` VALUES ('22233344455','RH001','Marlus','Bueno','Masculino','Pardo','12345','1990-01-01',NULL,'Ativo','Mestrado','2026-05-09 02:09:04'),('30040050033','MAT001','','','Masculino','Branco','','0000-00-00',NULL,'Ativo','Fundamental','2026-05-12 22:27:15'),('50060070055','MAT002','Eduarda','Costa','Feminino','Branco','RG1002','1990-12-12','Casado','Ativo','Pós-Graduação','2026-05-12 22:34:46'),('60070080066','MAT003','Fabio','Santos','Masculino','Preto','RG1003','1988-07-04','Divorciado','Férias','Superior','2026-05-12 22:34:46'),('80090000088','MAT004','Hugo','Teixeira','Masculino','Branco','RG1004','1992-01-19','União Estável','Ativo','Mestrado','2026-05-12 22:34:46'),('90010020099','MAT005','Beatriz','Lopes','Feminino','Amarelo','RG1005','1994-06-22','Solteiro','Ativo','Doutorado','2026-05-12 22:34:46');
 /*!40000 ALTER TABLE `tb_funcionarios` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1354,6 +1357,7 @@ CREATE TABLE `tb_matriculas` (
 
 LOCK TABLES `tb_matriculas` WRITE;
 /*!40000 ALTER TABLE `tb_matriculas` DISABLE KEYS */;
+INSERT INTO `tb_matriculas` VALUES (2026001,1,1,85.50,'0000-00-00','2026-05-12 22:27:15','2026-05-12 22:27:15',NULL),(2026002,1,1,62.00,'0000-00-00','2026-05-12 22:27:15','2026-05-12 22:27:15',NULL),(2026003,2,2,98.00,'2025-02-01','2026-05-12 22:57:15','2026-05-12 22:57:15','2025-12-20'),(2026003,3,1,95.00,'0000-00-00','2026-05-12 22:27:15','2026-05-12 22:27:15',NULL),(2026004,2,2,45.00,'0000-00-00','2026-05-12 22:27:15','2026-05-12 22:27:15',NULL),(2026004,3,1,74.00,'2026-02-15','2026-05-12 22:57:15','2026-05-12 22:57:15',NULL);
 /*!40000 ALTER TABLE `tb_matriculas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1460,6 +1464,7 @@ CREATE TABLE `tb_notas` (
 
 LOCK TABLES `tb_notas` WRITE;
 /*!40000 ALTER TABLE `tb_notas` DISABLE KEYS */;
+INSERT INTO `tb_notas` VALUES (2026001,1,4.50,4.00,0.00,8.50);
 /*!40000 ALTER TABLE `tb_notas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1532,7 +1537,7 @@ CREATE TABLE `tb_pessoas` (
 
 LOCK TABLES `tb_pessoas` WRITE;
 /*!40000 ALTER TABLE `tb_pessoas` DISABLE KEYS */;
-INSERT INTO `tb_pessoas` VALUES ('11122233344','Joao','Silva','joao@email.com','Masculino','Branco','12345','2000-01-01'),('12345678901','Victoria','Arruda','victoria@sisgesc.com','Feminino','Branco','12.345.678-9','2001-02-28');
+INSERT INTO `tb_pessoas` VALUES ('10020030011','Ana','Oliveira','ana.oli@email.com','Masculino','Branco','','1998-05-20'),('11122233344','Joao','Silva','joao@email.com','Masculino','Branco','12345','2000-01-01'),('12345678901','Victoria','Arruda','victoria@sisgesc.com','Feminino','Branco','12.345.678-9','2001-02-28'),('20030040022','Bruno','Souza','bruno.s@email.com','Masculino','Branco','RG1002','2002-11-15'),('40050060044','Daniel','Lima','dani.lima@email.com','Masculino','Preto','RG1003','2001-08-30'),('70080090077','Gabriela','Rocha','gabi.rocha@email.com','Feminino','Branco','RG1004','2003-03-25');
 /*!40000 ALTER TABLE `tb_pessoas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1622,6 +1627,7 @@ CREATE TABLE `tb_professores` (
 
 LOCK TABLES `tb_professores` WRITE;
 /*!40000 ALTER TABLE `tb_professores` DISABLE KEYS */;
+INSERT INTO `tb_professores` VALUES ('22233344455','Mestre','marlus.bueno@sisgesc.com.br');
 /*!40000 ALTER TABLE `tb_professores` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1651,6 +1657,7 @@ CREATE TABLE `tb_semestre` (
 
 LOCK TABLES `tb_semestre` WRITE;
 /*!40000 ALTER TABLE `tb_semestre` DISABLE KEYS */;
+INSERT INTO `tb_semestre` VALUES (2026,1,'2026-02-01','2026-06-30',1);
 /*!40000 ALTER TABLE `tb_semestre` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1666,7 +1673,7 @@ CREATE TABLE `tb_setor` (
   `nome_setor` varchar(100) NOT NULL,
   PRIMARY KEY (`pk_id_setor`),
   UNIQUE KEY `nome_setor` (`nome_setor`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=5 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1675,7 +1682,7 @@ CREATE TABLE `tb_setor` (
 
 LOCK TABLES `tb_setor` WRITE;
 /*!40000 ALTER TABLE `tb_setor` DISABLE KEYS */;
-INSERT INTO `tb_setor` VALUES (1,'Administrativo');
+INSERT INTO `tb_setor` VALUES (1,'Administrativo'),(2,'Financeiro'),(4,'Manutenção'),(3,'TI');
 /*!40000 ALTER TABLE `tb_setor` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1713,7 +1720,7 @@ CREATE TABLE `tb_status_aluno` (
   `pk_id_status_aluno` int NOT NULL AUTO_INCREMENT,
   `status_aluno` enum('Ativo','Inativo','Trancado','Cancelado','Concluído') NOT NULL,
   PRIMARY KEY (`pk_id_status_aluno`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1722,7 +1729,7 @@ CREATE TABLE `tb_status_aluno` (
 
 LOCK TABLES `tb_status_aluno` WRITE;
 /*!40000 ALTER TABLE `tb_status_aluno` DISABLE KEYS */;
-INSERT INTO `tb_status_aluno` VALUES (1,'Ativo'),(2,'Concluído');
+INSERT INTO `tb_status_aluno` VALUES (1,'Ativo'),(2,'Concluído'),(3,'Concluído');
 /*!40000 ALTER TABLE `tb_status_aluno` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1877,7 +1884,7 @@ CREATE TABLE `tb_status_matricula` (
   `pk_id_status_matricula` int NOT NULL AUTO_INCREMENT,
   `status_matricula` enum('Confirmada','Pendente','Em Análise','Trancada','Cancelada') NOT NULL,
   PRIMARY KEY (`pk_id_status_matricula`)
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1886,7 +1893,7 @@ CREATE TABLE `tb_status_matricula` (
 
 LOCK TABLES `tb_status_matricula` WRITE;
 /*!40000 ALTER TABLE `tb_status_matricula` DISABLE KEYS */;
-INSERT INTO `tb_status_matricula` VALUES (1,'Confirmada'),(2,'Pendente');
+INSERT INTO `tb_status_matricula` VALUES (1,'Confirmada'),(2,'Pendente'),(3,'Cancelada');
 /*!40000 ALTER TABLE `tb_status_matricula` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1901,7 +1908,7 @@ CREATE TABLE `tb_status_semestre` (
   `pk_id_status_semestre` int NOT NULL AUTO_INCREMENT,
   `status_semestre` enum('Cursando','Aprovado','Reprovado','Trancado','DP') NOT NULL,
   PRIMARY KEY (`pk_id_status_semestre`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1910,6 +1917,7 @@ CREATE TABLE `tb_status_semestre` (
 
 LOCK TABLES `tb_status_semestre` WRITE;
 /*!40000 ALTER TABLE `tb_status_semestre` DISABLE KEYS */;
+INSERT INTO `tb_status_semestre` VALUES (1,'Cursando');
 /*!40000 ALTER TABLE `tb_status_semestre` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -1982,7 +1990,7 @@ CREATE TABLE `tb_turmas` (
   CONSTRAINT `tb_turmas_ibfk_4` FOREIGN KEY (`fk_id_disciplina`) REFERENCES `tb_disciplina` (`pk_id_disciplina`),
   CONSTRAINT `tb_turmas_ibfk_5` FOREIGN KEY (`fk_ano_letivo`, `fk_num_semestre`) REFERENCES `tb_semestre` (`ano_letivo`, `num_semestre`),
   CONSTRAINT `tb_turmas_chk_1` CHECK ((`dia_semana` between 1 and 7))
-) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=17 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -1991,6 +1999,7 @@ CREATE TABLE `tb_turmas` (
 
 LOCK TABLES `tb_turmas` WRITE;
 /*!40000 ALTER TABLE `tb_turmas` DISABLE KEYS */;
+INSERT INTO `tb_turmas` VALUES (1,'ADS-2026-1N',1,1,'22233344455',1,2026,1,2,'19:00:00','22:00:00','A','101'),(2,'Análise de Sistemas - Noite - 2026/1',1,3,'11122233344',1,2026,1,2,'19:00:00','22:30:00','Bloco B','Sala 204'),(3,'Gestão Financeira - Manhã - 2026/1',1,1,'22233344455',2,2026,1,3,'08:00:00','11:30:00','Bloco A','Sala 105'),(4,'Sistemas de Informação - Noite - 2026/1',2,3,'11122233344',3,2026,1,4,'19:00:00','22:30:00','Bloco C','Sala 301');
 /*!40000 ALTER TABLE `tb_turmas` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2005,7 +2014,7 @@ CREATE TABLE `tb_turnos` (
   `pk_id_turno` int NOT NULL AUTO_INCREMENT,
   `nome_turno` enum('Manhã','Tarde','Noite','Integral') NOT NULL,
   PRIMARY KEY (`pk_id_turno`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=2 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2014,6 +2023,7 @@ CREATE TABLE `tb_turnos` (
 
 LOCK TABLES `tb_turnos` WRITE;
 /*!40000 ALTER TABLE `tb_turnos` DISABLE KEYS */;
+INSERT INTO `tb_turnos` VALUES (1,'Noite');
 /*!40000 ALTER TABLE `tb_turnos` ENABLE KEYS */;
 UNLOCK TABLES;
 
@@ -2078,7 +2088,7 @@ CREATE TABLE `tb_vinculo_professor_disciplina` (
   CONSTRAINT `tb_vinculo_professor_disciplina_chk_1` CHECK ((`carga_horaria` > 0)),
   CONSTRAINT `tb_vinculo_professor_disciplina_chk_2` CHECK ((`ano_letivo` >= 2000)),
   CONSTRAINT `tb_vinculo_professor_disciplina_chk_3` CHECK ((`semestre` in (1,2)))
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
+) ENGINE=InnoDB AUTO_INCREMENT=7 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci;
 /*!40101 SET character_set_client = @saved_cs_client */;
 
 --
@@ -2087,6 +2097,7 @@ CREATE TABLE `tb_vinculo_professor_disciplina` (
 
 LOCK TABLES `tb_vinculo_professor_disciplina` WRITE;
 /*!40000 ALTER TABLE `tb_vinculo_professor_disciplina` DISABLE KEYS */;
+INSERT INTO `tb_vinculo_professor_disciplina` VALUES (6,'22233344455',1,'ADS',40.00,2026,1);
 /*!40000 ALTER TABLE `tb_vinculo_professor_disciplina` ENABLE KEYS */;
 UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;
@@ -2099,4 +2110,4 @@ UNLOCK TABLES;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2026-05-12 19:15:22
+-- Dump completed on 2026-05-12 22:35:01
